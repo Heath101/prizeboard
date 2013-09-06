@@ -9,13 +9,13 @@ describe "Categories" do
     end
   end
 
-  # describe "GET /categories/new" do
+  describe "GET /categories/new" do
 
-  #   it "should show new for" do
-  #     visit new_category_path
-  #     fill_in "Name", with: "Category 55"
-  #     click_button 'submit'
-  #   end
-  # end
+    it "should show new for" do
+      visit new_category_path
+      fill_in "Name", with: "Category 55"
+      click_button 'submit'
+    end
+  end
 
 end

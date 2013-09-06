@@ -3,4 +3,8 @@ class CategoriesController < ApplicationController
     @categories = Category.find(:all)
   end
 
+  def new
+    @category = Category.new
+  end
+
 end

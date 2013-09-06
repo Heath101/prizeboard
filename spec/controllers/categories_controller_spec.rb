@@ -7,8 +7,15 @@ describe CategoriesController do
   describe "GET index" do
     it "assigns all categories as @categories" do
       category = Category.create! valid_attributes
-      get :index, {}
+      get :index
       assigns(:categories).should eq([category])
+    end
+  end
+
+  describe "GET new" do
+    it "assigns a new category as @category" do
+      get :new
+      assigns(:category).should be_a_new(Category)
     end
   end
 
