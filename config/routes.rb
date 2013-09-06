@@ -1,6 +1,9 @@
 Prizeboard::Application.routes.draw do
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
+
+  resources :categories
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

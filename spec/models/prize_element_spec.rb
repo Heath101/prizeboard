@@ -10,4 +10,5 @@ describe PrizeElement do
   it {should belong_to(:prize)}
 
 
+
 end
