@@ -1,5 +1,10 @@
 <h1>Categories Index</h1>
+<%= link_to 'add category', new_category_path %>
+
+<% flash.each do |key, value| %>
+  <div class="alert <%= key %>"><%= value %></div>
+<% end %>
 
 <% @categories.each do |category| %>
-  <h2><%= category.name %></h2>
+  <h2><%= link_to "#{category.name}", category_path(category.id) %></h2>
 <% end %> 
