@@ -109,4 +109,20 @@ describe CategoriesController do
       end
     end
   end
+
+  describe "DELETE destroy" do
+    it "destroys the requested category" do
+      category = Category.create! valid_attributes
+      expect {
+        delete :destroy, {:id => category.to_param}
+      }.to change(Category, :count).by(-1)
+    end
+
+    it "redirects to the categories list" do
+      category = Category.create! valid_attributes
+      delete :destroy, {:id => category.to_param}
+      expect(response).to redirect_to(categories_url)
+      expect(flash[:success]).not_to be_nil
+    end
+  end
 end

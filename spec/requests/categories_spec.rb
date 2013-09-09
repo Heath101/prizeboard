@@ -70,7 +70,8 @@ describe "Categories" do
       visit new_category_path
       fill_in "Name", with: "Category 80"
       click_button 'Create Category'
-      visit edit_category_path(1)
+      visit category_path(1)
+      click_link 'edit'
     end
 
     it "should show the category form" do
@@ -97,5 +98,20 @@ describe "Categories" do
       click_button 'Update Category'
       expect(page).to have_selector('h1', text: "Category 84") #TODO: decoupled from view implementation
     end
+  end
+
+  # categories#destroy
+  describe "DELETE /category/:id" do
+    it "should delete category" do
+      visit new_category_path
+      fill_in "Name", with: "Category 29"
+      click_button 'Create Category'
+      visit category_path(1)
+      click_link 'delete'
+      expect(page).to have_content("Categories Index") #TODO: decoupled from view implementation
+      expect(page).not_to have_content("Category 29")
+      expect(page).to have_selector('div.success', text: "Category successfully deleted")
+    end
+
   end
 end
