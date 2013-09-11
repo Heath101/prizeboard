@@ -3,6 +3,7 @@ require 'spec_helper'
 describe CategoriesController do
 
   let(:valid_attributes) { FactoryGirl.attributes_for(:category) }
+  let(:prize_attributes) { FactoryGirl.attributes_for(:prize)}
 
   describe "GET index" do
     it "assigns all categories as @categories" do
@@ -17,6 +18,14 @@ describe CategoriesController do
       category = Category.create! valid_attributes
       get :show, {:id => category.to_param}
       assigns(:category).should eq(category)
+    end
+
+    it "assigns categories prizes to @prizes" do
+      category = Category.create! valid_attributes
+      prize = category.prizes.create! prize_attributes
+      prizes = category.prizes
+      get :show, {:id => category.to_param}
+      assigns(:prizes).should eq(prizes)
     end
   end
 
@@ -42,7 +51,7 @@ describe CategoriesController do
         assigns(:category).should be_persisted
       end
 
-      it "should redirect to show action with flash message" do
+      it "should redirect to category index with flash message" do
         post :create, {:category => valid_attributes}
         response.should redirect_to(categories_path)
         expect(flash[:success]).not_to be_nil

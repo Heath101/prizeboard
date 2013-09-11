@@ -1,3 +1,10 @@
 <h1><%= @category.name %></h1>
 <%= link_to 'edit', edit_category_path(@category) %>
 <%= link_to 'delete', @category, method: :delete %>
+
+<ul>
+  <% @prizes.each do |prize| %>
+    <li><%= prize.name %></li>
+  <% end %>
+</ul>
+<%= link_to 'add prize', new_category_prize_path(@category) %>
