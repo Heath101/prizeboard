@@ -1,6 +1,8 @@
 class PrizesController < ApplicationController
+
+  before_filter :get_category, only: [:new,:create]
+
   def new
-    @category = Category.find(params[:category_id])
     @prize = @category.prizes.build
     @prize.prize_elements.build
   end
@@ -12,10 +14,16 @@ class PrizesController < ApplicationController
   end
 
   def create
-    @category = Category.find(params[:category_id])
+    #### not tested in controller (request spec passes)
     @prize = @category.prizes.build(params[:prize])
+    ####
     if @prize.save
       redirect_to category_path(@category)
     end
   end
+
+  private
+    def get_category
+      @category = Category.find(params[:category_id])
+    end
 end

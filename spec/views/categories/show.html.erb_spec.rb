@@ -10,19 +10,21 @@ describe "categories/show.html.erb" do
   end
 
   describe "category listing" do
+    before(:each) { render }
     it "has edit link" do
-      render
       expect(rendered).to have_link('edit', href: edit_category_path(@category))
     end
 
     it "has delete link" do
-      render
       expect(rendered).to have_link('delete', href: category_path(@category)) #TODO this is not testing path with delete method
     end
 
     it "displays category name" do
-      render
       expect(rendered).to have_content("Category 40")
+    end
+
+    it "has add prize link" do
+      expect(rendered).to have_link('add prize', href: new_category_prize_path(@category))
     end
   end
 
@@ -34,9 +36,11 @@ describe "categories/show.html.erb" do
       expect(rendered).to have_content("Prize Element")
     end
     
-    it "has add prize link" do
+
+    it "has edit link" do
+      prize = @prizes.first
       render
-      expect(rendered).to have_link('add prize', href: new_category_prize_path(@category))
+      expect(rendered).to have_link('edit', href: edit_category_prize_path(@category,prize))
     end
   end
 end

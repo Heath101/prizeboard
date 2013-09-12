@@ -11,13 +11,8 @@ describe Category do
   
   it {should be_valid}
 
+  it {should have_many(:prizes).dependent(:destroy)}
+
   it "default sort order is alphabetical" 
-  
-  context "associations" do
-
-    it {should have_many(:prizes)}
-    it "should destroy prize associations" 
-
-  end
 
 end

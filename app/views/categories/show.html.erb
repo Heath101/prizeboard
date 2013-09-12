@@ -3,8 +3,6 @@
 <%= link_to 'delete', @category, method: :delete %>
 
 <ul>
-  <% @prizes.each do |prize| %>
-    <li><%= prize.name %></li>
-  <% end %>
+  <%= render 'prize_listing' %>
 </ul>
 <%= link_to 'add prize', new_category_prize_path(@category) %>

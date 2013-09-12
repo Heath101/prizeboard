@@ -6,7 +6,7 @@ describe PrizesController do
   let(:prize_attributes) { FactoryGirl.attributes_for(:prize)}
   let(:prize_with_elements_attributes) { FactoryGirl.attributes_for(:prize_with_elements)}
 
-  describe "GET prize/new" do
+  describe "GET prizes/new" do
     it "assigns category from url as @category" do
       category = Category.create! category_attributes
       get :new, {category_id: category.to_param}
@@ -27,8 +27,7 @@ describe PrizesController do
     end
   end
 
-  describe "POST prize/new" do
-
+  describe "POST prizes/new" do
     context "with valid data" do
 
       it "creates a new prize" do
@@ -55,5 +54,13 @@ describe PrizesController do
         response.should redirect_to(category_path(category))
       end
     end
+
+    context "with invalid data" do
+    end
+  end
+
+  describe "GET categories/:category_id/prizes/:id/edit" do
+  end
+  describe "PUT categories/:category_id/prizes" do
   end
 end
