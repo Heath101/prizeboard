@@ -4,7 +4,7 @@ require 'pry'
 describe PrizesController do
   let(:category_attributes) { FactoryGirl.attributes_for(:category) }
   let(:prize_attributes) { FactoryGirl.attributes_for(:prize)}
-  let(:prize_element_attributes) {FactoryGirl.attributes_for(:prize_element)}
+  let(:prize_with_elements_attributes) { FactoryGirl.attributes_for(:prize_with_elements)}
 
   describe "GET prize/new" do
     it "assigns category from url as @category" do
@@ -28,15 +28,15 @@ describe PrizesController do
   end
 
   describe "POST prize/new" do
-    context "with valid data" do
 
+    context "with valid data" do
 
       it "creates a new prize" do
         category = Category.create! category_attributes
         expect do
           post :create, {
             category_id: category.to_param, 
-            prize: FactoryGirl.attributes_for(:prize_with_elements)}
+            prize: prize_with_elements_attributes}
         end
         .to change(Prize, :count).by(1)
       end
@@ -47,12 +47,7 @@ describe PrizesController do
         assigns(:category).should eq(category)
       end
 
-      # it "assigns newly created prize as @prize" do
-      #   category = Category.create! category_attributes
-      #   post :new, {category_id: category.to_param}
-      #   assigns(:prize).should 
-
-      # end
+      it "assigns newly created prize as @prize"
 
       it "redirect to category index" do
         category = Category.create! category_attributes
