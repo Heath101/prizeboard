@@ -70,7 +70,7 @@ describe "Categories" do
       visit new_category_path
       fill_in "Name", with: "Category 80"
       click_button 'Create Category'
-      visit category_path(1)
+      visit category_path(Category.last)
       click_link 'edit'
     end
 
@@ -106,7 +106,7 @@ describe "Categories" do
       visit new_category_path
       fill_in "Name", with: "Category 29"
       click_button 'Create Category'
-      visit category_path(1)
+      visit category_path(Category.last)
       click_link 'delete'
       expect(page).to have_content("Categories Index") #TODO: decoupled from view implementation
       expect(page).not_to have_content("Category 29")
