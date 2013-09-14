@@ -2,6 +2,10 @@ Prizeboard::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+  #this is a hack to get the _prize_form partial to route correctly for both new and update
+  #TODO fix it correctly
+  put 'categories/:category_id/prizes' => 'prizes#update'
+
   resources :categories do
     resources :prizes
   end

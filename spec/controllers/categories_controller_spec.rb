@@ -6,7 +6,8 @@ describe CategoriesController do
   let(:valid_attributes) { FactoryGirl.attributes_for(:category) }
   let(:prize_attributes) { FactoryGirl.attributes_for(:prize)}
 
-  describe "GET index" do
+  #GET categories/
+  describe "index" do
     it "assigns all categories as @categories" do
       category = Category.create! valid_attributes
       get :index
@@ -14,7 +15,8 @@ describe CategoriesController do
     end
   end
 
-  describe "GET show" do
+  #GET categories/:id
+  describe "show" do
     it "assigns category to @category" do
       category = Category.create! valid_attributes
       get :show, {:id => category.to_param}
@@ -30,14 +32,16 @@ describe CategoriesController do
     end
   end
 
-  describe "GET new" do
+  #GET categories/new
+  describe "new" do
     it "assigns a new category as @category" do
       get :new
       assigns(:category).should be_a_new(Category)
     end
   end
 
-  describe "POST new" do
+  #POST categories/
+  describe "new" do
 
     context "with valid data" do
 
@@ -73,7 +77,8 @@ describe CategoriesController do
     end
   end
 
-  describe "GET edit" do
+  #GET categories/:id/edit
+  describe "edit" do
     it "finds and assigns category as @category" do
       category = Category.create! valid_attributes
       get :edit, {id: category.to_param}
@@ -81,7 +86,8 @@ describe CategoriesController do
     end
   end
 
-  describe "PUT update" do
+  #PUT categories/
+  describe "update" do
     describe "with valid params" do
       it "updates the requested category" do
         category = Category.create! valid_attributes
@@ -120,7 +126,8 @@ describe CategoriesController do
     end
   end
 
-  describe "DELETE destroy" do
+  #DELETE categories/
+  describe "destroy" do
     it "destroys the requested category" do
       category = Category.create! valid_attributes
       expect {

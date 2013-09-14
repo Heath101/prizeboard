@@ -1,18 +1,4 @@
 <h1>Add a Prize</h1>
 
-<%= form_for(@prize, url: category_prizes_path) do |f| %>
-  <p>
-    <%= f.check_box :active %>
-    <%= f.label :active %>
-  </p>
-  <%= f.fields_for :prize_elements do |builder| %>
-    <p class="fields">
-      <%= builder.label :value, "Value" %>
-      <%= builder.number_field :value, size: 5 %>
-      <%= builder.label :name, "Name" %>
-      <%= builder.text_field :name %>
-    </p>
-  <% end %>
-  <%= f.submit %>
-<% end %>
+<%= render 'prize_form' %>
 

@@ -8,6 +8,16 @@ describe "Prizes" do
   end
 
   # prizes#new
+  describe "new" do
+    it "creates a new prize" do
+      visit categories_path
+      click_link 'Test Category'
+      click_link 'add prize'
+      fill_in 'Name', with: 'Mountain Bike'
+      fill_in 'Value', with: 100
+    end
+  end
+
   # prizes#create
   describe "GET/POST category/:category_id/prizes/new" do
     it "creates and saves a new prize" do
@@ -36,13 +46,12 @@ describe "Prizes" do
       visit categories_path
       click_link 'Category 1'
       within("li#prize-#{@category.id}") { click_link 'edit'} #TODO: decouple from view implementation
-      fill_in 'Value', with: 1000
-      fill_in 'Name', with: "Updated pElement"
+      fill_in 'prize_prize_elements_attributes_0_value', with: 1000
+      fill_in 'prize_prize_elements_attributes_0_name', with: "Updated pElement"
       click_button 'Update Prize'
       expect(page).to have_selector('h1', text: "Category 1") #TODO: decouple from view implementation
       expect(page).to have_content('Updated pElement')
       expect(page).to have_content('1000')
-      expect(page).not_to have_content(original_prize_Name)
     end
   end
 
