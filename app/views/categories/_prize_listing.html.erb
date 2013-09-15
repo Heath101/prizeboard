@@ -2,5 +2,6 @@
   <%= content_tag(:li, id: "prize-#{prize.id}") do -%>
     <%= "#{prize.name}" %>
   <%= link_to "edit", [:edit,@category,prize] %>
+  <%= link_to "delete", [@category,prize], method: :delete %>
   <% end -%>
 <% end %>

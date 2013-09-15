@@ -16,7 +16,8 @@ describe "categories/show.html.erb" do
     end
 
     it "has delete link" do
-      expect(rendered).to have_link('delete', href: category_path(@category)) #TODO this is not testing path with delete method
+      #TODO this is not testing path with delete method
+      expect(rendered).to have_link('delete', href: category_path(@category)) 
     end
 
     it "displays category name" do
@@ -29,18 +30,21 @@ describe "categories/show.html.erb" do
   end
 
   describe "prize(s) listing" do
-
-    #TODO test for multiple prizes
-    it "displays prize names" do
+    before(:each) do
+      @prize = @prizes.first
       render
+    end
+
+    it "displays prize names" do
       expect(rendered).to have_content("Prize Element")
     end
-    
 
     it "has edit link" do
-      prize = @prizes.first
-      render
-      expect(rendered).to have_link('edit', href: edit_category_prize_path(@category,prize))
+      expect(rendered).to have_link('edit', href: edit_category_prize_path(@category,@prize))
+    end
+
+    it "has edit link" do
+      expect(rendered).to have_link('delete', href: category_prize_path(@category,@prize))
     end
   end
 end

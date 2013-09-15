@@ -103,7 +103,7 @@ describe PrizesController do
 
   #PUT categories/:category_id/prizes/
   describe "update" do
-    context "with valid prize data" do
+    describe "with valid prize data" do
     end
   end
 
@@ -126,7 +126,5 @@ describe PrizesController do
       expect(response).to redirect_to(category_path(category))
       expect(flash[:success]).not_to be_nil
     end
-
   end
-
 end

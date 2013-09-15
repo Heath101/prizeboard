@@ -1,6 +1,6 @@
 class PrizesController < ApplicationController
 
-  before_filter :get_category, only: [:new,:create,:edit,:update,:destroy]
+  before_filter :get_category, except: :index
 
   def new
     @prize = @category.prizes.build
@@ -29,8 +29,8 @@ class PrizesController < ApplicationController
     @prize = @category.prizes.find(params[:id])
     if @prize.update_attributes(params[:prize])
       redirect_to category_path(@category)
-    else
-      render action: 'edit'
+    # else
+    #   render action: 'edit'
     end
     ####
   end
