@@ -103,6 +103,30 @@ describe PrizesController do
 
   #PUT categories/:category_id/prizes/
   describe "update" do
+    context "with valid prize data" do
+    end
+  end
+
+
+  #DELETE categories/:category_id/prizes/
+  describe "destroy" do
+
+    it "destroys the requested prize" do
+      category = FactoryGirl.create(:category_with_prizes)
+      prize = category.prizes.first
+      expect {
+        delete :destroy, {category_id: category.id, id: prize.id}
+      }.to change(Prize, :count).by(-1)
+    end
+
+    it "redirects to the category show page" do
+      category = FactoryGirl.create(:category_with_prizes)
+      prize = category.prizes.first
+      delete :destroy, {category_id: category.id, id: prize.id}
+      expect(response).to redirect_to(category_path(category))
+      expect(flash[:success]).not_to be_nil
+    end
+
   end
 
 end

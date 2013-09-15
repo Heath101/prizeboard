@@ -1,6 +1,6 @@
 class PrizesController < ApplicationController
 
-  before_filter :get_category, only: [:new,:create,:edit,:update]
+  before_filter :get_category, only: [:new,:create,:edit,:update,:destroy]
 
   def new
     @prize = @category.prizes.build
@@ -33,6 +33,13 @@ class PrizesController < ApplicationController
       render action: 'edit'
     end
     ####
+  end
+
+  def destroy
+    @prize = @category.prizes.find(params[:id])
+    @prize.destroy
+    flash[:success] = "Prize successfully deleted"
+    redirect_to category_path(@category)
   end
 
   private

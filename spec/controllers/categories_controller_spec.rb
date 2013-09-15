@@ -41,7 +41,7 @@ describe CategoriesController do
   end
 
   #POST categories/
-  describe "new" do
+  describe "create" do
 
     context "with valid data" do
 
