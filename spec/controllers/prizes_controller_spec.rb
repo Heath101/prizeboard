@@ -70,10 +70,12 @@ describe PrizesController do
         end.not_to change(Prize, :count).by(1)
       end
 
-      it "assigns unsaved prize to @prize"
-        # prize = category.prizes.build prize_with_elements_attributes
-        # post :create, {category_id: category.to_param, prize: prize}
-        # assigns(:prize).should eq(prize)
+      it "assigns unsaved prize to @prize" do
+        prize = category.prizes.build prize_with_elements_attributes
+        post :create, {category_id: category.to_param, prize: prize}
+        assigns(:prize).should be_a(Prize)
+        assigns(:prize).should_not be_persisted
+      end
 
       it "should render new template" do
         post :create, { category_id: category.to_param, prize: prize_with_elements_attributes}
