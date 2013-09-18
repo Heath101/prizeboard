@@ -7,7 +7,7 @@ describe "categories/edit.html.erb" do
   end
 
 
-#TODO not sure this page is thoroughly tested.
+#TODO not sure this form is tested correctly.
   it "should show category form" do
     render
     assert_select "form[action=?][method=?]", category_path(@category), "post" do

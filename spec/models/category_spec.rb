@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Category do
 
-  before { @category = FactoryGirl.create(:category) }
+  before { @category = FactoryGirl.create(:category, name: "ABC") }
   subject { @category }
 
   it {should respond_to(:name)}
@@ -13,5 +13,10 @@ describe Category do
 
   it {should have_many(:prizes).dependent(:destroy)}
 
-  it "default sort order is alphabetical" 
+  it "default sort order is alphabetical" do
+    third = FactoryGirl.create(:category, name: "XYZ")
+    second = FactoryGirl.create(:category, name: "DEF")
+    expect(Category.all).to eq [@category,second,third]
+
+  end
 end

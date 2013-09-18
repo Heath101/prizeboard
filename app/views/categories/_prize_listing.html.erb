@@ -1,6 +1,10 @@
 <% @prizes.each do |prize| %>
   <%= content_tag(:div, class: "prize-name", id: "prize-#{prize.id}") do -%>
-    <%= "#{prize.name}" %>
+    <ul>
+      <% prize.prize_elements.each do |prize_element| %>
+        <li><%= "#{number_to_currency(prize_element.value)} #{prize_element.name}" %></li>
+      <% end %>
+    </ul>
     <%= link_to "", [:edit,@category,prize], class: "link-div", id: 'edit' %>
     <%= link_to [@category,prize], 
                 id: "delete", 
