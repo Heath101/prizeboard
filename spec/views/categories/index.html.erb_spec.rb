@@ -1,4 +1,5 @@
 require 'spec_helper'
+require "pry"
 
 describe "categories/index.html.erb" do
   before(:each) do

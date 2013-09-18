@@ -6,4 +6,6 @@ class Category < ActiveRecord::Base
 
   has_many :prizes, dependent: :destroy
 
+  default_scope order('name ASC') 
+
 end

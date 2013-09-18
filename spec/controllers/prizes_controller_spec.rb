@@ -104,6 +104,16 @@ describe PrizesController do
   #PUT categories/:category_id/prizes/
   describe "update" do
     describe "with valid prize data" do
+      before(:each) do
+        @category = FactoryGirl.create(:category_with_prizes)
+        @prize1 = @category.prizes.first
+        @prize1.save!
+      end
+ #TODO this test is not finished
+      it "updates the requested prize" do
+        Prize.any_instance.should_receive(:update_attributes)
+        put :update, {category_id: @category.to_param, id: @prize1.id}
+      end
     end
   end
 

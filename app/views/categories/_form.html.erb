@@ -1,16 +1,20 @@
-<%= form_for(@category) do |f| %>
-  <% if @category.errors.any? %>
-    <div class="error">
-      <%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</br>
-      <ul>
+<% if @category.errors.any? %>
+  <div class="alert alert-danger">
+    <%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</br>
+    <ul>
       <% @category.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <li><%= msg %></li>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %><br />
-  <%= f.submit %>
+    </ul>
+  </div>
 <% end %>
+<%= form_for(@category, html: {role: "form"}) do |f| %>
+  <div class="custom-form">
+    <div class="form-group">
+      <%= f.label :name, class: "sr-only" %>
+      <%= f.text_field :name, placeholder: "Category name" %>
+    </div>
+    <%= f.submit class: "btn btn-success" %>
+  </div>
+<% end %>
+

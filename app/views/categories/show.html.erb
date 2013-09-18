@@ -1,8 +1,6 @@
 <h1><%= @category.name %></h1>
-<%= link_to 'edit', edit_category_path(@category) %>
-<%= link_to 'delete', @category, method: :delete %>
-
-<ul>
-  <%= render 'prize_listing' %>
-</ul>
-<%= link_to 'add prize', new_category_prize_path(@category) %>
+<%= link_to 'edit', edit_category_path(@category), class: "btn btn-primary btn-xs" %>
+<%= link_to 'delete', @category, method: :delete,  class: "btn btn-danger btn-xs", 
+                                  data: { confirm: 'Are you sure?' } %>
+<%= render 'prize_listing' %>
+<%= link_to 'add prize', new_category_prize_path(@category), class: "btn btn-success" %>

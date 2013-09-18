@@ -8,9 +8,21 @@
 </head>
 <body>
 
-<%= yield %>
-<div class="debug">
-  <%= debug(params) if Rails.env.development? %>
-</div>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <ul class="nav nav-pills">
+        <li><%= link_to "Categories", categories_path %></li>
+        <li><%= link_to "Prizes", "#" %></li>
+        <li><a href="#">Show Prizeboard</a></li>
+      </ul>
+    </nav>
+  <div class="container">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+    <%= yield %>
+  </div>
+  <div class="debug">
+    <%= debug(params) if Rails.env.development? %>
+  </div>
 </body>
 </html>
