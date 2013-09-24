@@ -30,20 +30,27 @@ describe "categories/show.html.erb" do
   end
 
   describe "prize(s) listing" do
-    before(:each) do
-      @prize = @prizes.first
+    it "shows ok-glyph if prize is active" do
+      @prizes.each {|prize| prize.active = false}
+      @prizes.first.active = true
       render
+      expect(rendered).to have_selector('span.active-glyph', count: 1)
     end
 
     it "displays prize names" do
+      render
       expect(rendered).to have_content("Prize Element")
     end
 
     it "has edit link" do
+      @prize = @prizes.first
+      render
       expect(rendered).to have_link('edit', href: edit_category_prize_path(@category,@prize))
     end
 
-    it "has edit link" do
+    it "has delete link" do
+      @prize = @prizes.first
+      render
       expect(rendered).to have_link('delete', href: category_prize_path(@category,@prize))
     end
   end

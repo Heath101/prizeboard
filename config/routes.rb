@@ -1,6 +1,6 @@
 Prizeboard::Application.routes.draw do
 
-  root :to => 'categories#index'
+  root to:'categories#index'
 
   resources :categories do
     resources :prizes

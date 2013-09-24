@@ -7,6 +7,11 @@
 
 /* site layout */
 
+.title {
+  font-size:400%;
+
+}
+
 .container {
   margin: 20px 20px;
   position: relative;
@@ -21,17 +26,31 @@ h1 {
   margin-right: 10px;
 }
 
+body {
+  margin: 20px;
+}
+
+
 /* Navbar */
 
-.navbar-default {
-  background-color: #ccc;
-}
+.nav > li > a {
+    display: inline-block;
+    margin: 5px;
+    font-weight: bold;
+  }
+
+  .nav > li > a:focus,
+  .nav > li > a:hover {
+    background-color: rgb(240,173,48);
+    color: white;
+  }
 
 /* Prize Listing */
 .prize-name {
   @include grey-box;
   width: 400px;
   height: auto;
+  display: block;
   position:relative;
   padding: 10px 10px;
   vertical-align: middle;
@@ -47,7 +66,7 @@ h1 {
   text-decoration: none;
 }
 
-.close {
+.close-button {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -59,16 +78,28 @@ ul {
   list-style-type: none;
 }
 
-/* Form styles */
-    .form-wrapper {
-      color: #ccc;
-      font-weight: bold;
-      width: 60%;
-      height: auto;
-      padding: 20px 5px;
-      @include grey-box;
-    }
+.active-glyph {
+  position: absolute;
+  display: inline;
+  top: 5px;
+  left: 5px;
+  color: rgb(92,184,92);
+}
 
-    .prize-element {
-      display: inline-block;
-    }
+/* Form styles */
+.form-wrapper {
+  color: #ccc;
+  font-weight: bold;
+  width: 60%;
+  height: auto;
+  padding: 20px 5px;
+  @include grey-box;
+}
+
+.prize-element {
+  display: inline-block;
+
+  a {
+    position: absolute;
+  }
+}

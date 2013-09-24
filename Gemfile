@@ -4,10 +4,8 @@ gem 'rails', '3.2.14'
 gem 'sqlite3'
 
 
-# Gems used only for assets and not required
-# in production environments by default.
+
 group :assets do
-  # gem 'bootstrap-sass', '~> 2.3.2.1'
   gem 'bootstrap-sass-rails'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -29,6 +27,7 @@ group :test do
   gem 'rb-inotify'
   gem 'libnotify'
   gem 'shoulda-matchers'
+  gem 'simplecov', :require => false
 end
 
 gem 'jquery-rails'

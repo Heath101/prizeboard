@@ -3,18 +3,14 @@
 <head>
   <title>Prizeboard</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", :defaults %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-    <nav class="navbar navbar-default navbar-static-top" role="navigation">
-      <ul class="nav nav-pills">
-        <li><%= link_to "Categories", categories_path %></li>
-        <li><%= link_to "Prizes", "#" %></li>
-        <li><a href="#">Show Prizeboard</a></li>
-      </ul>
-    </nav>
+  <header>
+    <%= image_tag "prizeboard_admin.jpg", class: "title-image" %>
+    <%= render 'layouts/navbar' %>
+  </header>
   <div class="container">
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>"><%= value %></div>

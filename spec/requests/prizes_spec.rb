@@ -13,8 +13,11 @@ describe "Prizes" do
       visit categories_path
       click_link "Test Category"
       click_link "add prize"
-      fill_in "Name", with: "Mountain Bike"
-      fill_in "Value", with: 100
+      within(".prize-element:first") do
+        fill_in "Name", with: "Mountain Bike"
+        fill_in "Value", with: 100
+      end
+      
     end
   end
 
@@ -24,8 +27,10 @@ describe "Prizes" do
       visit categories_path
       click_link "Test Category"
       click_link "add prize"
-      fill_in "Name", with: "Mountain Bike"
-      fill_in "Value", with: 100
+      within(".prize-element:first") do
+        fill_in "Name", with: "Mountain Bike"
+        fill_in "Value", with: 100
+      end
       click_button "Create Prize"
       expect(page).to have_selector("h1", text: "Test Category") #TODO: decouple from view implementation
       expect(page).to have_content("Mountain Bike")

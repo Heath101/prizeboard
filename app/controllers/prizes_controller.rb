@@ -3,8 +3,8 @@ class PrizesController < ApplicationController
   before_filter :get_category, except: :index
 
   def new
-    @prize = @category.prizes.build
-    @prize.prize_elements.build
+    @prize = @category.prizes.build(active: true)
+    3.times { @prize.prize_elements.build}
   end
 
   def index
