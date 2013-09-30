@@ -20,6 +20,3 @@ function remove_fields (link) {
   $(link).closest('.prize-element').hide();
 }
 
-function() {
-  $( document ).tooltip();
-}

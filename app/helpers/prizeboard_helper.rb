@@ -1,0 +1,2 @@
+module PrizeboardHelper
+end
