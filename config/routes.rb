@@ -2,7 +2,7 @@ Prizeboard::Application.routes.draw do
 
   root to:'categories#index'
 
-  match 'prizeboard/' => 'prizeboard#show'
+  match 'prizeboard/' => 'prizeboard#index'
 
   resources :categories do
     resources :prizes

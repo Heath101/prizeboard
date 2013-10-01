@@ -16,6 +16,7 @@
 
 $(function() {
   $("a").on("click", toggle_availability );
+
 });
 
 
@@ -27,5 +28,6 @@ function remove_fields (link) {
 
 function toggle_availability() {
   $(this).toggleClass("inactive");
+    $(this).parents(".prize").toggleClass("shadow2");
 }
 

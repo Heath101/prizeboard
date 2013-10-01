@@ -1,6 +1,7 @@
 class PrizeboardController < ApplicationController
 layout "prizeboard"
-  def show
+  def index
     @categories = Category.all
   end
+
 end
