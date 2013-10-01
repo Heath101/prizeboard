@@ -14,14 +14,18 @@
 //= require jquery_ujs
 //= require_tree .
 
+$(function() {
+  $("a").on("click", toggle_availability );
+});
+
+
 
 function remove_fields (link) {
   $(link).prev('input[type=hidden]').val("1");
   $(link).closest('.prize-element').hide();
 }
 
-$(function() {
-$("a").on("click", function() {
-    $(this).toggleClass("inactive");
-  });
-});
+function toggle_availability() {
+  $(this).toggleClass("inactive");
+}
+

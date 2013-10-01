@@ -4,9 +4,11 @@
     <% category.prizes.each do |prize| %>
       <div class="prize shadow1">
         <%= content_tag(:a) do -%>
+        <div class="elements">
           <% prize.prize_elements.each do |prize_element| %>
           <span><%= "#{number_to_currency(prize_element.value, precision: 0)} #{prize_element.name}" %></span>
           <% end %>
+        </div>
         <% end -%>
       </div>
     <% end %>
