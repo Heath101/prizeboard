@@ -3,10 +3,6 @@ ruby "1.9.3"
 
 gem 'rails', '3.2.14'
 
-group :development do
-  gem 'sqlite3', '1.3.8' 
-end
-
 group :assets do
   gem 'bootstrap-sass-rails'
   gem 'sass-rails',   '~> 3.2.3'
@@ -17,6 +13,7 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'sqlite3', '1.3.8' 
   gem 'rspec-rails', '~> 2.0'
   gem 'guard-rspec'
   gem 'guard-spork'
@@ -34,6 +31,7 @@ group :test do
 end
 
 group :production do
+  gem 'thin'
   gem 'pg', '0.12.2'
   gem 'rails_12factor'
 end
