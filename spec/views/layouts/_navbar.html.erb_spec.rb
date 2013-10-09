@@ -8,6 +8,6 @@ describe "layouts/_navbar.html.erb" do
   end
   it "should have link to Play Prizeboard" do
     render
-    expect(rendered).to have_link("Play Prizeboard", prizeboard_path)
+    expect(rendered).to have_link("Play Prizeboard", '/prizeboard')
   end
 end

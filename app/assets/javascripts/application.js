@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 
+
 $(function() {
   $("a").on("click", toggle_availability );
 
