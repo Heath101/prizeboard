@@ -1,10 +1,10 @@
 class PrizeboardController < ApplicationController
-#layout "prizeboard"
+layout "prizeboard"
   def index
-    @categories = Category.all
+    @categories = Category.includes(prizes: [:prize_elements]).all
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = Category.includes(prizes: [:prize_elements]).find(params[:id])
   end
 end

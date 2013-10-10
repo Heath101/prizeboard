@@ -1,7 +1,17 @@
 <% @categories.each do |category| %>
   <%= content_tag(:div, class: "category", id: "category-#{category.id}") do -%>
     <h1><%= link_to category.name, prizeboard_path(category) %></h1>
-    <%= render 'prizes', category: category %>
+    <% category.prizes.each do |prize| %>
+      <div class="prize shadow1">
+        <%= link_to('#', id: "prize-#{prize.id}", data: {active: prize.active}) do %>
+          <% prize.prize_elements.each do |prize_element| %>
+            <span>
+              <%= "#{number_to_currency(prize_element.value, precision: 0)} #{prize_element.name}" %>
+            </span>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
   <% end -%>
 <% end %>
 

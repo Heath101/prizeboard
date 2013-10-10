@@ -17,7 +17,7 @@
 
 $(function() {
   $("a").on("click", toggle_availability );
-
+  $("[data-active='false']").toggleClass('inactive');
 });
 
 
