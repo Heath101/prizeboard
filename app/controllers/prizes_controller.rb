@@ -25,14 +25,12 @@ class PrizesController < ApplicationController
   end
 
   def update
-    ###
     @prize = @category.prizes.find(params[:id])
     if @prize.update_attributes(params[:prize])
       redirect_to category_path(@category)
     else
       render action: 'edit'
     end
-    ####
   end
 
   def destroy
