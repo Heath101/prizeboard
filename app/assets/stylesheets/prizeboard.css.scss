@@ -32,7 +32,7 @@ $category-background: #e3e3e3;
   font-size: 1em;
 }
 
-.prize a {
+div[id^="prize-"], .prize a {
   position: absolute;
   border: 1px solid #D7D7D7;
   background-color: white;
