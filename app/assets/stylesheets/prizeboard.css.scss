@@ -2,130 +2,184 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$category-background: #e3e3e3;
+$category-background: #d7d7d7;
+body.prizeboard {
 
-.category {
-  display: inline-block;
-  background: $category-background;
-  margin: 0.5%;
-  padding: 5px 0;
-  width: 48.6016%;
-  height: auto;
-  border: 1px solid rgb(167, 167, 167);
-  text-align: center;
-  box-shadow: 3px 3px 5px rgb(119, 119, 119);
-}
-
-.category h1 {
-  text-shadow: 2px 2px #e1e1e1;
-  display: block;
-}
-
-.prize {
-  display: inline-block;
-  position: relative;
-  width: 43.506494%;
-  height: 100px;
-  z-index: 1;
-  margin: 4px;
-  font-weight: bold;
-  font-size: 1em;
-}
-
-div[id^="prize-"], .prize a {
-  position: absolute;
-  border: 1px solid #D7D7D7;
-  background-color: white;
-  color: #333;        
-  margin: auto;  
-  padding: 2px 5px;
-  width: 100%;
-  height: 100px;
-  right: 0px;
-  left: 0px;
-
-  &.inactive {
-    background-color: darken($category-background, 2%);
-    border: 1px dashed darken($category-background, 5%);
-    color: darken($category-background, 5%);
+   &.grey-back {
+    background-color: $category-background;
+    font-family: 'Titan One', cursive;
+    font-family: 'Bowlby One', cursive;
+    font-family: 'Comfortaa', cursive;
   }
-}
-.prize span {
-  display: block;
-  text-align: center;
-  margin: auto;
-  right: 0;
-  left: 0;
-}
+
+  a {
+    outline: none;
+  }
+
+  .category-container{
+    position:absolute;
+    top:0;
+    bottom:0;
+    right: 0;
+    left: 0;
+    background-color: $category-background;
+    border: 1px solid #a7a7a7;
+    padding: 0 1.25%;
+    z-index: -2;
+
+  }
+
+
+  .category-holder{
+    float: left;
+    width: 48%;
+    height:47%;
+    background-color: white;
+    border: 1px solid #a7a7a7;
+    padding: 0 1.25%;
+    -webkit-box-shadow: 3px 3px 5px #777;
+    -moz-box-shadow:    3px 3px 5px #777;
+    box-shadow:         3px 3px 5px #777;
+    z-index: -2;
+    margin: 1%;
+
+
+  }
+
+
+  .category-header {
+    font-family: 'Bowlby One', cursive;
+    display: block;
+    width: 100%;
+    height: 10%;
+    margin-top: .5%;
+    text-align: center;
+    text-shadow: 1px 1px 2px #aaa;
+    vertical-align: middle;
+    color: #D12A2A;
+    font-size: 220%;
+
+  }
+
+  .prizeboard-prize {
+    display: inline-block;
+    float: left;
+    position: relative;
+    width: 47%;
+    margin: 1.25%;
+    height: 25%;
+    border: 1px solid #ccc;
+    background-color: white;
+    padding-top: 2%;
+    text-align: center;
+
+  }
+
+  .shadow1 {
+    position: relative;
+  }
+
+  .shadow1:before, .shadow1:after {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width: 300px;
+    background: #777;
+    -webkit-box-shadow: 0 15px 10px #777;
+    -moz-box-shadow: 0 15px 10px #777;
+    box-shadow: 0 15px 10px #777;
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+    -ms-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+  }
+
+  .shadow1:after {
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    -o-transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+    transform: rotate(3deg);
+    right: 10px;
+    left: auto;
+  }
 
 
 
+  .prizeboard-title {
+    font-family: 'Bowlby One', cursive;
+    text-align: center;
+    float: left;
+    right: 0;
+    left: 0;
+    width: 100%;
+    margin: auto;
+    text-shadow: 1px 1px 2px #ccc;
+    font-size: 140%;
+  }
 
-/* --------------------------------- */
-.shadow1 {
-  position: relative;
-}
+  .inactive, .inactive div, .inactive a {
+    background-color: $category-background;
+    color: #aaa;
+    text-shadow: none;
+  }
 
-.shadow1:before, .shadow1:after {
-  z-index: -1;
-  position: absolute;
-  content: "";
-  bottom: 15px;
-  left: 10px;
-  width: 50%;
-  top: 80%;
-  max-width:300px;
-  background: #777;
-  -webkit-box-shadow: 0 15px 10px #777;
-  -moz-box-shadow: 0 15px 10px #777;
-  box-shadow: 0 15px 10px #777;
-  -webkit-transform: rotate(-3deg);
-  -moz-transform: rotate(-3deg);
-  -o-transform: rotate(-3deg);
-  -ms-transform: rotate(-3deg);
-  transform: rotate(-3deg);
-}
+  .inactive {
+    border: 1px solid #eee;
+  }
 
-.shadow1:after {
- -webkit-transform: rotate(3deg);
- -moz-transform: rotate(3deg);
- -o-transform: rotate(3deg);
- -ms-transform: rotate(3deg);
- transform: rotate(3deg);
- right: 10px;
- left: auto;
-}
 
-.shadow2 {
-  position: relative;
-}
 
-.shadow2:before, .shadow2:after {
-  z-index: -1;
-  position: absolute;
-  content: "";
-  bottom: 15px;
-  left: 10px;
-  width: 50%;
-  top: 80%;
-  max-width:300px;
-  background: darken($category-background, 10%);
-  -webkit-box-shadow: 0 15px 10px darken($category-background, 10%);
-  -moz-box-shadow: 0 15px 10px darken($category-background, 10%);
-  box-shadow: 0 15px 10px darken($category-background, 10%);
-  -webkit-transform: rotate(-2deg);
-  -moz-transform: rotate(-2deg);
-  -o-transform: rotate(-2deg);
-  -ms-transform: rotate(-2deg);
-  transform: rotate(-2deg);
-}
+  /*  SHOW  */
 
-.shadow2:after {
- -webkit-transform: rotate(2deg);
- -moz-transform: rotate(2deg);
- -o-transform: rotate(2deg);
- -ms-transform: rotate(2deg);
- transform: rotate(2deg);
- right: 10px;
- left: auto;
+
+  .show-category-container{
+    position:absolute;
+    top:1.5%;
+    bottom:1.5%;
+    right: 1.5%;
+    left: 1.5%;
+    background-color: white;
+    border: 1px solid #a7a7a7;
+    padding: 0 1.25%;
+    -webkit-box-shadow: 3px 3px 5px #777;
+    -moz-box-shadow:    3px 3px 5px #777;
+    box-shadow:         3px 3px 5px #777;
+    z-index: -2;
+
+
+  }
+
+  .show-category-header {
+    font-family: 'Bowlby One', cursive;
+    display: block;
+    width: 100%;
+    height: 10%;
+    margin-top: .5%;
+    text-align: center;
+    text-shadow: 1px 1px 2px #aaa;
+    vertical-align: middle;
+    font-size: 300%;
+    color: rgb(66,139,202);
+  }
+
+  .show-prizeboard-title {
+    font-family: 'Bowlby One', cursive;
+    text-align: center;
+    float: left;
+    right: 0;
+    left: 0;
+    width: 100%;
+    margin: auto;
+    text-shadow: 1px 1px 2px #aaa;
+  }
+
+    a.fix-it {
+      color: black;
+    }
 }

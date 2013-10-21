@@ -49,13 +49,12 @@ body {
 /* Prize Listing */
 .prize-name {
   @include grey-box;
-  width: 400px;
+  width: 50%;
   height: auto;
   display: block;
   position:relative;
-  padding: 10px 10px;
+  padding: 1%;
   vertical-align: middle;
-  margin: 4px 20px;
 }
 
 .link-div {
@@ -90,11 +89,11 @@ ul {
 
 /* Form styles */
 .form-wrapper {
-  color: #ccc;
+
   font-weight: bold;
   width: 60%;
   height: auto;
-  padding: 1% .25%;
+  padding: 2.5%;
   @include grey-box;
 }
 

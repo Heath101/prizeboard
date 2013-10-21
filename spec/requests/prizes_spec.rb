@@ -13,11 +13,7 @@ describe "Prizes" do
       visit categories_path
       click_link "Test Category"
       click_link "add prize"
-      within(".prize-element:first") do
-        fill_in "Name", with: "Mountain Bike"
-        fill_in "Value", with: 100
-      end
-      
+
     end
   end
 
@@ -27,13 +23,12 @@ describe "Prizes" do
       visit categories_path
       click_link "Test Category"
       click_link "add prize"
-      within(".prize-element:first") do
-        fill_in "Name", with: "Mountain Bike"
-        fill_in "Value", with: 100
-      end
+      fill_in "title", with: "Mountain Bike"
+      fill_in "description", with: "$100 - Rei"
       click_button "Create Prize"
       expect(page).to have_selector("h1", text: "Test Category") #TODO: decouple from view implementation
       expect(page).to have_content("Mountain Bike")
+      expect(page).to have_content("$100 - Rei")
     end
   end
 
@@ -50,8 +45,8 @@ describe "Prizes" do
       visit categories_path
       click_link "Category 1"
       within("div#prize-#{@prize1.id}") { click_link "edit"} #TODO: decouple from view implementation
-      fill_in "prize_prize_elements_attributes_0_value", with: '1000'
-      fill_in "prize_prize_elements_attributes_0_name", with: "Updated pElement"
+      fill_in "title", with: "Updated pElement"
+      fill_in "description", with: "1,000"
       click_button "Update Prize"
       expect(page).to have_selector("h1", text: "Category 1") #TODO: decouple from view implementation
       expect(page).to have_content("Updated pElement")

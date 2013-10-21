@@ -16,8 +16,11 @@
 
 
 $(function() {
-  $("a[id|='prize']").on("click", toggle_availability );
-  $("[data-active='false']").toggleClass('inactive').parents(".prize").toggleClass("shadow2");
+  $("a.prizeboard-prize").on("click", toggle_availability );
+
+  $("[data-active='false']").toggleClass('inactive');
+  $("[data-active='false']").toggleClass("shadow1");
+
 });
 
 
@@ -28,5 +31,6 @@ function remove_fields (link) {
 
 function toggle_availability() {
   $(this).toggleClass("inactive");
-    $(this).parents(".prize").toggleClass("shadow2");
+  $(this).toggleClass("shadow1");
 }
+

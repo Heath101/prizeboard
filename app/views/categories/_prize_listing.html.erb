@@ -3,9 +3,9 @@
     <%= content_tag(:span, "", 
     class: "glyphicon glyphicon-ok-sign active-glyph") if prize.active %>
     <ul>
-        <% prize.prize_elements.each do |prize_element| %>
-          <li><%= "#{number_to_currency(prize_element.value)} #{prize_element.name}" %></li>
-        <% end %>
+          <li><b><%= prize.title %></b><br/>
+              <%= prize.description %>
+          </li>
     </ul>
     <%= link_to "", [:edit,@category,prize], class: "link-div", id: 'edit' %>
     <%= link_to [@category,prize], 

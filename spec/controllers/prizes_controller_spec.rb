@@ -4,7 +4,7 @@ require 'pry'
 describe PrizesController do
   let(:category_attributes) { FactoryGirl.attributes_for(:category) }
   let(:prize_attributes) { FactoryGirl.attributes_for(:prize)}
-  let(:prize_with_elements_attributes) { FactoryGirl.attributes_for(:prize_with_elements)}
+
 
   #GET categories/:category_id/prizes/new
   describe "new" do
@@ -24,7 +24,6 @@ describe PrizesController do
     it "builds elements for prize" do
       category = Category.create! category_attributes
       get :new, {category_id: category.to_param}
-      assigns(:prize).prize_elements.should_not be_empty
     end
   end
 
