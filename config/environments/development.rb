@@ -34,4 +34,7 @@ Prizeboard::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Look for non existant folder in dev mode to not serve precompiled assets.
+  config.assets.prefix = "/assets_dev"
 end

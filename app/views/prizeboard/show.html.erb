@@ -1,12 +1,16 @@
 <%= content_tag(:div, class: "show-category-container", id: "category-#{@category.id}") do -%>
-  <div class="show-category-header"><%= link_to @category.name, prizeboard_index_path %></div>
+  <div class="show-category-header">
+    <%= link_to @category.name, prizeboard_index_path %>
+  </div>
   <% @category.prizes.each do |prize| %>
-          <%= link_to("#", class: "prizeboard-prize shadow1",
-             data: {active: prize.active, prize_id: prize.id}) do %>
-      <div class="show-prizeboard-title"><%= prize.title %></div>
-      <%= prize.description %>
-      <% end %>
-
+    <%= link_to(update_prizeboard_prize_path(prize.id), 
+            :remote => true, 
+            :method => :post,
+            class: "show-prizeboard-prize shadow1",
+            data: {active: prize.active, prize_id: prize.id}) do %>
+    <div class="show-prizeboard-title"><%= prize.title %></div>
+    <%= prize.description %>
+    <% end %>
   <% end %>
 <% end -%>
 

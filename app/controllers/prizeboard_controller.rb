@@ -10,6 +10,11 @@ layout "prizeboard"
 
   def update
     @prize = Prize.find(params[:id])
-    render js: "alert(#{prize.id})"
+    @prize.toggle(:active)
+    if not @prize.save
+      render js: ""
+    else
+      render :update_prize
+    end
   end
 end
