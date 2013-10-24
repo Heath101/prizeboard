@@ -3,12 +3,28 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $background: #bbb;
-$category-background: #FFE8C5;
+$category-background: #d3d3d3;
+
+@mixin blue_back {
+  background-size: 2000px 1300px;
+  background-repeat:no-repeat;
+  background-image: -ms-radial-gradient(left center, ellipse farthest-corner, #163857 0%, #1487B8 100%);
+  background-image: -moz-radial-gradient(left center, ellipse farthest-corner, #163857 0%, #1487B8 100%);
+  background-image: -o-radial-gradient(left center, ellipse farthest-corner, #163857 0%, #1487B8 100%);
+  background-image: -webkit-gradient(radial, left center, 0, left center, 980, color-stop(0, #163857), color-stop(1, #1487B8));
+  background-image: -webkit-radial-gradient(left center, ellipse farthest-corner, #163857 0%, #1487B8 100%);
+  background-image: radial-gradient(ellipse farthest-corner at left center, #163857 0%, #1487B8 100%);
+  
+}
+
 // $category-background: #fff3d6;
 body.prizeboard {
 
-   &.grey-back {
-    background-color: $background;
+  @include blue_back;
+
+ &.grey-back {
+    // background-color: $background;
+
     font-family: 'Oswald', sans-serif;
     font-family: 'Titan One', cursive;
     font-family: 'Bowlby One', cursive;
@@ -29,6 +45,7 @@ body.prizeboard {
     border: 1px solid #a7a7a7;
     padding: 0 1.25%;
     z-index: -2;
+    @include blue_back;
 
   }
 
@@ -40,9 +57,9 @@ body.prizeboard {
     background-color: $category-background;
     border: 1px solid #a7a7a7;
     padding: 0 1.25%;
-    -webkit-box-shadow: 3px 3px 5px #777;
-    -moz-box-shadow:    3px 3px 5px #777;
-    box-shadow:         3px 3px 5px #777;
+    -webkit-box-shadow: 3px 3px 5px #0A1926;
+    -moz-box-shadow:    3px 3px 5px #0A1926;
+    box-shadow:         3px 3px 5px #0A1926;
     z-index: -2;
     margin: 1%;
 
@@ -137,13 +154,13 @@ body.prizeboard {
     position: relative;
     width: 47%;
     margin: 1.25%;
-    height: 19.1%;
+    height: 18%;
     border: 1px solid #ccc;
     background-color: white;
     padding-top: 1%;
     text-align: center;
     color: black;
-    font-size: 140%;
+    font-size: 135%;
 
   }
 
@@ -157,9 +174,9 @@ body.prizeboard {
     background-color: $category-background;
     border: 1px solid #a7a7a7;
     padding: 0 1%;
-    -webkit-box-shadow: 3px 3px 5px #777;
-    -moz-box-shadow:    3px 3px 5px #777;
-    box-shadow:         3px 3px 5px #777;
+    -webkit-box-shadow: 3px 3px 5px #0A1926;
+    -moz-box-shadow:    3px 3px 5px #0A1926;
+    box-shadow:         3px 3px 5px #0A1926;
     z-index: -2;
 
 
@@ -170,11 +187,11 @@ body.prizeboard {
     display: block;
     width: 100%;
     height: 8.8%;
-    margin-top: .5%;
+    margin-top: .4%;
     text-align: center;
     text-shadow: 1px 1px 2px #aaa;
     vertical-align: middle;
-    font-size: 290%;
+    font-size: 280%;
     color: rgb(66,139,202);
   }
 
@@ -186,8 +203,8 @@ body.prizeboard {
     left: 0;
     width: 100%;
     margin: auto;
-    text-shadow: 1px 1px 2px #aaa;
-    font-size: 170%;
+    text-shadow: 1px 1px 1px #aaa;
+    font-size: 160%;
   }
 
   .inactive, .inactive div, .inactive a {
