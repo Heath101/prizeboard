@@ -20,6 +20,8 @@ group :development, :test do
   gem 'childprocess'
   gem 'spork'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'pry'
+  gem 'pry-debugger'
 end
 
 group :test do

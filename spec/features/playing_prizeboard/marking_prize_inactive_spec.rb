@@ -8,7 +8,8 @@ describe "Prizeboard Prize" do
       active_prize = category.prizes.first
       active_prize.active = true
       visit prizeboard_index_path
-      click_link "prize-#{active_prize.id}"
+      click_link category.name
+      find(:xpath, "//a[@data-prize-id=#{active_prize.id}]").click
       ## finish this test ##
     end
   end

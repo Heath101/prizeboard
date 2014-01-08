@@ -37,9 +37,10 @@ describe "categories/show.html.erb" do
       expect(rendered).to have_selector('span.active-glyph', count: 1)
     end
 
-    it "displays prize names" do
+    it "displays prize title" do
+      prize_name = @prizes.first.title
       render
-      expect(rendered).to have_content("Prize Element")
+      expect(rendered).to have_content(prize_name)
     end
 
     it "has edit link" do

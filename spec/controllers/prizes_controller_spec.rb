@@ -36,7 +36,7 @@ describe PrizesController do
         expect do
           post :create, {
             category_id: category.to_param, 
-            prize: prize_with_elements_attributes}
+            prize: prize_attributes}
         end.to change(Prize, :count).by(1)
       end
 
@@ -46,7 +46,7 @@ describe PrizesController do
       end
 
       it "assigns newly created prize as @prize" do
-        prize = category.prizes.build prize_with_elements_attributes
+        prize = category.prizes.build prize_attributes
         post :create, {category_id: category.to_param, prize: prize}
         assigns(:prize).should be_a(Prize)
         assigns(:prize).should be_persisted
@@ -65,19 +65,19 @@ describe PrizesController do
 
       it "does not create prize" do
         expect do
-          post :create, { category_id: category.to_param, prize: prize_with_elements_attributes}
+          post :create, { category_id: category.to_param, prize: prize_attributes}
         end.not_to change(Prize, :count).by(1)
       end
 
       it "assigns unsaved prize to @prize" do
-        prize = category.prizes.build prize_with_elements_attributes
+        prize = category.prizes.build prize_attributes
         post :create, {category_id: category.to_param, prize: prize}
         assigns(:prize).should be_a(Prize)
         assigns(:prize).should_not be_persisted
       end
 
       it "should render new template" do
-        post :create, { category_id: category.to_param, prize: prize_with_elements_attributes}
+        post :create, { category_id: category.to_param, prize: prize_attributes}
         response.should render_template(:new)
       end
     end

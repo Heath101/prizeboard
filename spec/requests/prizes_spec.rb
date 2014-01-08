@@ -10,21 +10,16 @@ describe "Prizes" do
   # prizes#new
   describe "new" do
     it "creates a new prize" do
-      visit categories_path
-      click_link "Test Category"
-      click_link "add prize"
-
+      create_new_prize
     end
   end
 
   # prizes#create
   describe "create" do
     it "creates and saves a new prize" do
-      visit categories_path
-      click_link "Test Category"
-      click_link "add prize"
-      fill_in "title", with: "Mountain Bike"
-      fill_in "description", with: "$100 - Rei"
+      create_new_prize
+      fill_in "prize_title", with: "Mountain Bike"
+      fill_in "prize_description", with: "$100 - Rei"
       click_button "Create Prize"
       expect(page).to have_selector("h1", text: "Test Category") #TODO: decouple from view implementation
       expect(page).to have_content("Mountain Bike")
@@ -45,8 +40,8 @@ describe "Prizes" do
       visit categories_path
       click_link "Category 1"
       within("div#prize-#{@prize1.id}") { click_link "edit"} #TODO: decouple from view implementation
-      fill_in "title", with: "Updated pElement"
-      fill_in "description", with: "1,000"
+      fill_in "prize_title", with: "Updated pElement"
+      fill_in "prize_description", with: "1,000"
       click_button "Update Prize"
       expect(page).to have_selector("h1", text: "Category 1") #TODO: decouple from view implementation
       expect(page).to have_content("Updated pElement")
@@ -71,5 +66,10 @@ describe "Prizes" do
     end
   end
 
+  def create_new_prize
+    visit categories_path
+    click_link "Test Category"
+    click_link "add prize"
+  end
 
 end
